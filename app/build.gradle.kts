@@ -65,4 +65,9 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     //Corrutinas
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
+    //Koin
+    implementation("io.insert-koin:koin-android:3.1.2")
+    implementation("io.insert-koin:koin-core:3.1.2")
+    //Timber
+    implementation("com.jakewharton.timber:timber:4.7.1")
 }
