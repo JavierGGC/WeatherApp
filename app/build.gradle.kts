@@ -51,23 +51,18 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    //region Timber
-    implementation("com.jakewharton.timber:timber:4.7.1")
-//endregion
-    //region Koin
-    implementation("org.koin:koin-core:2.1.6")
-    implementation("org.koin:koin-core-ext:2.1.6")
-    implementation("org.koin:koin-androidx-scope:2.1.6")
-    implementation("org.koin:koin-androidx-viewmodel:2.1.6")
-//endregion
-    // Jspoon
-    implementation("pl.droidsonroids:jspoon:1.3.2")
 
-//region Retrofit
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    // Fragment
+    implementation("androidx.fragment:fragment-ktx:1.3.2")
+    // Activity
+    implementation("androidx.activity:activity-ktx:1.2.2")
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    // LiveData
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-//endregion
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    //Corrutinas
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.6")
 }
