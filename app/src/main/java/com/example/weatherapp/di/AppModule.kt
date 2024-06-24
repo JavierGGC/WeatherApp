@@ -1,4 +1,4 @@
-import com.example.weatherapp.data.model.CityRepository
+import com.example.weatherapp.repository.weather.CityRepository
 import com.example.weatherapp.data.model.GeoApi
 import com.example.weatherapp.presentation.viewmodel.WeatherViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel

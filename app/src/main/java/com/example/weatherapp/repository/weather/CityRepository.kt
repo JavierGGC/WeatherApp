@@ -1,5 +1,7 @@
-package com.example.weatherapp.data.model
+package com.example.weatherapp.repository.weather
 
+import com.example.weatherapp.data.model.CityInfo
+import com.example.weatherapp.data.model.GeoApi
 import retrofit2.Call
 
 class CityRepository(private val geoApi: GeoApi) {

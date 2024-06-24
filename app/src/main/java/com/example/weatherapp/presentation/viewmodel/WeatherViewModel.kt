@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherapp.data.model.CityInfo
-import com.example.weatherapp.data.model.CityRepository
+import com.example.weatherapp.repository.weather.CityRepository
 import retrofit2.Response
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,6 +18,8 @@ class WeatherViewModel (private val cityRepository: CityRepository) : ViewModel(
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String>
         get() = _errorMessage
+
+    val messageVisible = MutableLiveData(false)
 
     fun fetchCityInfo(query: String) {
         val call = cityRepository.getCityInfo(query)
