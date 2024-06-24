@@ -1,4 +1,4 @@
-package com.example.weatherapp.repository.weather
+package com.example.weatherapp.repository
 
 sealed class Pretty<out T> {
     abstract val success: Boolean

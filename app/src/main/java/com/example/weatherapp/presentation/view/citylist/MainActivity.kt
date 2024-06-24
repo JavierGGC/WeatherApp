@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     private lateinit var cityInfoAdapter: CityInfoAdapter
-    private val weatherViewModel: WeatherViewModel by viewModel()
+    private val weatherViewModel by viewModel<WeatherViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

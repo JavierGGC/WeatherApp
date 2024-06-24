@@ -1,4 +1,4 @@
-package com.example.weatherapp.repository.weather
+package com.example.weatherapp.repository
 
 sealed class CompletedPretty {
     abstract val success: Boolean
