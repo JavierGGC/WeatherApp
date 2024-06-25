@@ -6,5 +6,4 @@ data class CityInfoResponse(
     @Json(name = "name") val name: String,
     @Json(name = "state") val state: String,
     @Json(name = "country") val country: String
-
 )

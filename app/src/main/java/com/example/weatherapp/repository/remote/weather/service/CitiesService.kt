@@ -1,8 +1,8 @@
 package com.example.weatherapp.repository.remote.weather.service
 
-import com.example.weatherapp.data.model.CityInfo
+import com.example.weatherapp.model.CityInfoModel
 
 interface CitiesService {
 
-    suspend fun getCitiesInfo(query: String): List<CityInfo>
+    suspend fun getCitiesInfo(query: String): List<CityInfoModel>
 }

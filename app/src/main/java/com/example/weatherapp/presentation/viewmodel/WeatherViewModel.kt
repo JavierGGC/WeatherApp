@@ -3,7 +3,7 @@ package com.example.weatherapp.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.weatherapp.data.model.CityInfo
+import com.example.weatherapp.model.CityInfoModel
 import com.example.weatherapp.repository.handle
 import com.example.weatherapp.repository.remote.weather.CitiesManager
 import kotlinx.coroutines.CoroutineScope
@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 
 class WeatherViewModel(private val citiesManager: CitiesManager) : ViewModel() {
 
-    private val _cityInfoList = MutableLiveData<List<CityInfo>>()
-    val cityInfoList: LiveData<List<CityInfo>>
+    private val _cityInfoList = MutableLiveData<List<CityInfoModel>>()
+    val cityInfoList: LiveData<List<CityInfoModel>>
         get() = _cityInfoList
 
     private val _errorMessage = MutableLiveData<String>()
@@ -23,20 +23,6 @@ class WeatherViewModel(private val citiesManager: CitiesManager) : ViewModel() {
     val messageVisible = MutableLiveData(false)
 
     fun fetchCityInfo(query: String) {
-//        val call = cityRepository.getCityInfo(query)
-//        call.enqueue(object : Callback<List<CityInfo>> {
-//            override fun onResponse(call: Call<List<CityInfo>>, response: Response<List<CityInfo>>) {
-//                if (response.isSuccessful) {
-//                    _cityInfoList.value = response.body()
-//                } else {
-//                    _errorMessage.value = "Failed to retrieve data"
-//                }
-//            }
-
-//            override fun onFailure(call: Call<List<CityInfo>>, t: Throwable) {
-//                _errorMessage.value = "Request failed: ${t.message}"
-//            }
-//        })
         CoroutineScope(Dispatchers.IO).launch {
             citiesManager.getCities(query).handle(
                 error = { t ->

@@ -1,6 +1,6 @@
-package com.example.weatherapp.data.model
+package com.example.weatherapp.model
 
-data class CityInfo(
+data class CityInfoModel(
     val name: String,
     val state: String?,
     val country: String

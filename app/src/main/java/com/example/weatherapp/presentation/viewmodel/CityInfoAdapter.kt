@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
-import com.example.weatherapp.data.model.CityInfo
+import com.example.weatherapp.model.CityInfoModel
 
-class CityInfoAdapter(private var cityInfoList: List<CityInfo>) : RecyclerView.Adapter<CityInfoAdapter.CityInfoViewHolder>() {
+class CityInfoAdapter(private var cityInfoList: List<CityInfoModel>) : RecyclerView.Adapter<CityInfoAdapter.CityInfoViewHolder>() {
 
     class CityInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvState: TextView = itemView.findViewById(R.id.tvState)
@@ -30,7 +30,7 @@ class CityInfoAdapter(private var cityInfoList: List<CityInfo>) : RecyclerView.A
         return cityInfoList.size
     }
 
-    fun updateData(newCityInfoList: List<CityInfo>) {
+    fun updateData(newCityInfoList: List<CityInfoModel>) {
         cityInfoList = newCityInfoList
         notifyDataSetChanged()
     }
