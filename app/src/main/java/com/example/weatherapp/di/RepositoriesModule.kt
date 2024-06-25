@@ -1,9 +1,9 @@
 package com.example.weatherapp.di
 
-import com.example.weatherapp.repository.weather.CitiesManager
-import com.example.weatherapp.repository.weather.service.CitiesService
-import com.example.weatherapp.repository.weather.service.CitiesServiceImpl
-import com.example.weatherapp.repository.weather.service.RetrofitCitiesService
+import com.example.weatherapp.repository.remote.weather.CitiesManager
+import com.example.weatherapp.repository.remote.weather.service.CitiesService
+import com.example.weatherapp.repository.remote.weather.service.CitiesServiceImpl
+import com.example.weatherapp.repository.remote.weather.service.RetrofitCitiesService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.BuildConfig
@@ -30,7 +30,7 @@ inline fun <reified T> createRetrofitWebService(okHttpClient: OkHttpClient, url:
     Retrofit.Builder()
         .baseUrl(url)
         .client(okHttpClient)
-        .addConverterFactory(MoshiConverterFactory.create().withNullSerialization())
+        .addConverterFactory(MoshiConverterFactory.create())
         .build()
         .create(T::class.java)
 
@@ -41,8 +41,8 @@ val citiesServiceModule = module {
             "http://api.openweathermap.org/"
         )
     }
-    single<CitiesService>{ CitiesServiceImpl(get()) }
-    single { CitiesManager(get())}
+    single<CitiesService> { CitiesServiceImpl(get()) }
+    single { CitiesManager(get()) }
 
 }
 

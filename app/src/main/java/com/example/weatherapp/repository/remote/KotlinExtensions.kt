@@ -1,4 +1,4 @@
-package com.example.weatherapp.repository
+package com.example.weatherapp.repository.remote
 
 import retrofit2.Response
 

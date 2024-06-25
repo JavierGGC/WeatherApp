@@ -5,14 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherapp.data.model.CityInfo
 import com.example.weatherapp.repository.handle
-import com.example.weatherapp.repository.weather.CitiesManager
-import com.example.weatherapp.repository.weather.CityRepository
+import com.example.weatherapp.repository.remote.weather.CitiesManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Response
-import retrofit2.Call
-import retrofit2.Callback
 
 class WeatherViewModel(private val citiesManager: CitiesManager) : ViewModel() {
 
@@ -44,10 +40,10 @@ class WeatherViewModel(private val citiesManager: CitiesManager) : ViewModel() {
         CoroutineScope(Dispatchers.IO).launch {
             citiesManager.getCities(query).handle(
                 error = { t ->
-                    _errorMessage.value = "Request failed: ${t.message}"
+                    _errorMessage.postValue("Request failed: ${t.message}")
 
                 }, success = { list ->
-                    _cityInfoList.value = list
+                    _cityInfoList.postValue(list)
                 })
         }
     }
