@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
 import com.example.weatherapp.model.CityInfoModel
 
-class CityInfoAdapter(private var cityInfoList: List<CityInfoModel>) : RecyclerView.Adapter<CityInfoAdapter.CityInfoViewHolder>() {
+class CityInfoAdapter(
+    private var cityInfoList: List<CityInfoModel>,
+    private val onCityClickListener: (CityInfoModel) -> Unit
+) : RecyclerView.Adapter<CityInfoAdapter.CityInfoViewHolder>() {
 
     class CityInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvState: TextView = itemView.findViewById(R.id.tvState)
@@ -24,6 +27,7 @@ class CityInfoAdapter(private var cityInfoList: List<CityInfoModel>) : RecyclerV
         val cityInfo = cityInfoList[position]
         holder.tvState.text = cityInfo.state ?: "N/A"
         holder.tvCity.text = cityInfo.name
+        holder.itemView.setOnClickListener { onCityClickListener(cityInfo) }
     }
 
     override fun getItemCount(): Int {

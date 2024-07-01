@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.DetailActivity">
+    tools:context=".presentation.view.ForecastList.DetailActivity">
 <TextView
     android:id="@+id/tvCityDetail"
     android:layout_width="match_parent"

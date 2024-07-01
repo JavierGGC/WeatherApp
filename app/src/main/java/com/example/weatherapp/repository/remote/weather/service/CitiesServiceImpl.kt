@@ -12,7 +12,9 @@ class CitiesServiceImpl(private val retrofitCitiesService: RetrofitCitiesService
                     CityInfoModel(
                         name = cityResponse.name,
                         state = cityResponse.state,
-                        country = cityResponse.country
+                        country = cityResponse.country,
+                        lat = cityResponse.lat,
+                        lon = cityResponse.lon
                     )
                 }
             }

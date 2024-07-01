@@ -76,4 +76,6 @@ dependencies {
     //Timber
     implementation("com.jakewharton.timber:timber:4.7.1")
     //Moshi
+    //Picasso
+    implementation("com.squareup.picasso:picasso:2.71828")
 }

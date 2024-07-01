@@ -1,5 +1,6 @@
 package com.example.weatherapp.presentation.view.citylist
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.widget.SearchView
 import android.widget.Toast
@@ -7,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.BR
 import com.example.weatherapp.R
-import com.example.weatherapp.databinding.ActivityDetailBinding
 import com.example.weatherapp.databinding.ActivityMainBinding
+import com.example.weatherapp.model.CityInfoModel
+import com.example.weatherapp.presentation.view.ForecastList.DetailActivity
 import com.example.weatherapp.presentation.viewmodel.CityInfoAdapter
 import com.example.weatherapp.presentation.viewmodel.WeatherViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,8 +30,16 @@ class MainActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.setVariable(BR.viewModel, weatherViewModel)
 
+
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        cityInfoAdapter = CityInfoAdapter(emptyList())
+        cityInfoAdapter = CityInfoAdapter(emptyList()) { cityInfo: CityInfoModel ->
+            val intent = Intent(this, DetailActivity::class.java).apply {
+                putExtra("cityName", cityInfo.name)
+                putExtra("lat", cityInfo.lat)
+                putExtra("lon", cityInfo.lon)
+            }
+            startActivity(intent)
+        }
         binding.recyclerView.adapter = cityInfoAdapter
 
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
