@@ -30,10 +30,9 @@ class DetailActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.tvCityDetail).text = cityName
 
-        val recyclerView: RecyclerView = findViewById(R.id.rvWeather)
         binding.rvWeather.layoutManager = LinearLayoutManager(this)
         forecastAdapter = ForecastInfoAdapter(emptyList())
-        recyclerView.adapter = forecastAdapter
+        binding.rvWeather.adapter = forecastAdapter
 
         forecastViewModel.fetchWeatherForecast(lat, lon)
 
