@@ -58,4 +58,4 @@ val viewModelModule = module {
 }
 
 
-val repositoryModule = listOf(apiModule, citiesServiceModule)
+val repositoryModule = listOf(apiModule, citiesServiceModule, viewModelModule)

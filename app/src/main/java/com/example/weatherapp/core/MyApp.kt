@@ -14,7 +14,7 @@ class MyApp: Application() {
         //timber similar a log
         Timber.d("MyApp_TAG: onCreate: ")
         startKoin { androidContext(this@MyApp)
-        modules(repositoryModule + presentationModule + viewModelModule)
+        modules(repositoryModule + presentationModule)
         }
     }
 }
