@@ -37,8 +37,16 @@ class ForecastInfoAdapter (
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val weatherItem = weatherList[position]
 
-        holder.tvMax.text = "${weatherItem.mainDetails.temp_max}°C"
-        holder.tvMin.text = "${weatherItem.mainDetails.temp_min}°C"
+        //Verificando que no sea nulo
+        if (weatherItem.mainDetails != null) {
+            holder.tvMax.text = "${weatherItem.mainDetails.temp_max}°C"
+            holder.tvMin.text = "${weatherItem.mainDetails.temp_min}°C"
+        } else {
+            // Manejar el caso donde mainDetails es nulo
+            holder.tvMax.text = "N/A"
+            holder.tvMin.text = "N/A"
+        }
+
         holder.tvDateHour.text = SimpleDateFormat("EEE, hh:mm a", Locale.getDefault()).format(Date(weatherItem.dt * 1000))
 
         val iconUrl = "http://openweathermap.org/img/wn/${weatherItem.weather[0].icon}.png"
