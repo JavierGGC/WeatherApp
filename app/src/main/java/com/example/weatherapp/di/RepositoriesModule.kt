@@ -2,6 +2,7 @@ package com.example.weatherapp.di
 
 import com.example.weatherapp.model.ForecastResponse
 import com.example.weatherapp.presentation.viewmodel.ForecastViewModel
+import com.example.weatherapp.presentation.viewmodel.WeatherViewModel
 import com.example.weatherapp.repository.remote.weather.CitiesManager
 import com.example.weatherapp.repository.remote.weather.ForecastManager
 import com.example.weatherapp.repository.remote.weather.service.CitiesService
@@ -53,9 +54,20 @@ val citiesServiceModule = module {
 
 }
 
+val forecastServiceModule = module {
+    single<RetrofitForecastService> {
+        createRetrofitWebService(
+            get(),
+            "http://api.openweathermap.org/"
+        )
+    }
+    single { ForecastManager(get()) }
+}
+
 val viewModelModule = module {
+    viewModel { WeatherViewModel(get()) }
     viewModel { ForecastViewModel(get()) }
 }
 
 
-val repositoryModule = listOf(apiModule, citiesServiceModule, viewModelModule)
+val repositoryModule = listOf(apiModule, citiesServiceModule, viewModelModule, forecastServiceModule)
