@@ -1,20 +1,14 @@
 package com.example.weatherapp.presentation.viewmodel
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weatherapp.R
-import com.example.weatherapp.model.CityInfoModel
 import com.example.weatherapp.model.WeatherItem
 import com.squareup.picasso.Picasso
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -38,9 +32,9 @@ class ForecastInfoAdapter (
         val weatherItem = weatherList[position]
 
         //Verificando que no sea nulo
-        if (weatherItem.mainDetails != null) {
-            holder.tvMax.text = "${weatherItem.mainDetails.temp_max}°C"
-            holder.tvMin.text = "${weatherItem.mainDetails.temp_min}°C"
+        if (weatherItem.main != null) {
+            holder.tvMax.text = "${weatherItem.main.temp_max}°C"
+            holder.tvMin.text = "${weatherItem.main.temp_min}°C"
         } else {
             // Manejar el caso donde mainDetails es nulo
             holder.tvMax.text = "N/A"

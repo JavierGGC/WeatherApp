@@ -1,6 +1,5 @@
 package com.example.weatherapp.di
 
-import com.example.weatherapp.model.ForecastResponse
 import com.example.weatherapp.presentation.viewmodel.ForecastViewModel
 import com.example.weatherapp.presentation.viewmodel.WeatherViewModel
 import com.example.weatherapp.repository.remote.weather.CitiesManager
